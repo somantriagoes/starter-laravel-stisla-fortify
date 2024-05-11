@@ -18,23 +18,11 @@
 
 <body>
   <div id="app">
-    <div class="main-wrapper">
-      <div class="navbar-bg"></div>
-      <nav class="navbar navbar-expand-lg main-navbar">
-        @include('layouts.navbar')
-      </nav>
-      <div class="main-sidebar sidebar-style-2">
-        @include('layouts.sidebar')
-      </div>
-
-      <!-- Main Content -->
-      <div class="main-content">
-        @yield('content')
-      </div>
-      <footer class="main-footer">
-        @include('layouts.footer')
-      </footer>
-    </div>
+    <section class="section">
+        <div class="container mt-5">
+            @yield('content')
+        </div>
+    </section>
   </div>
 
   <!-- General JS Scripts -->

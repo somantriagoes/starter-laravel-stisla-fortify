@@ -19,9 +19,7 @@
 <body>
   <div id="app">
     <section class="section">
-        <div class="container mt-5">
-            @yield('content')
-        </div>
+        @yield('content')
     </section>
   </div>
 

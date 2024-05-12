@@ -14,12 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard.home');
+    return view('auth.login');
 });
 
-Route::get('/test', function () {
-    return view('dashboard.test');
+Route::middleware(['auth'])->group(function () {
+    Route::get('home', function () {
+        return view('dashboard.home');
+    })->name('home');
 });
+
+// Route::get('/', function () {
+//     return view('dashboard.home');
+// });
+
+// Route::get('/test', function () {
+//     return view('dashboard.test');
+// });
 
 // Route::get('/login', function () {
 //     return view('auth.login');

@@ -22,6 +22,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         //dd(Auth::user());
         return view('dashboard.home');
     })->name('home')->middleware('can:dashboard');
+
+    Route::get('edit-profile', function(){
+        return view('profile.edit');
+    })->name('profile.edit');
+
+
 });
 
 // Route::get('/', function () {

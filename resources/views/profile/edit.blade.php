@@ -24,7 +24,7 @@
               @method('PUT')
               @csrf
               <div class="card-header">
-                <h4>Edit Profile</h4>
+                <h4>Change Your Profile</h4>
               </div>
               <div class="card-body">
                   <div class="row">
@@ -85,7 +85,7 @@
                   </div>
               </div>
               <div class="card-footer text-right">
-                <button class="btn btn-primary" type="submit">Save Changes</button>
+                <button class="btn btn-primary" type="submit">Change Profile</button>
               </div>
             </form>
           </div>

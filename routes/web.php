@@ -27,6 +27,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('profile.edit');
     })->name('profile.edit');
 
+    Route::get('edit-password', function(){
+        return view('auth.edit-password');
+    })->name('auth.edit-password');
 
 });
 

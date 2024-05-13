@@ -19,7 +19,10 @@ class UserSeeder extends Seeder
 
         User::create([
             'name' => 'Agus Somantri',
+            'phone' => '+628575214',
             'email' => 'somantriagus@gmail.com',
+            'address' => 'Bandung, Jawa Barat',
+            'bio' => 'IT Dev',
             'role' => 'superadmin',
             'email_verified_at' => now(),
             'password' => Hash::make('Rahasia123#'),

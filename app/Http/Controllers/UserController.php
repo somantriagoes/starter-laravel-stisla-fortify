@@ -4,16 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        return view('user.index');
+        //$users = User::orderBy('id', 'DESC')->paginate(10);
+        $users = DB::table('users')
+            ->whereIn('role', ['user'])
+        ->when($request->input('search'), function($query, $search){
+            $query->whereIn('role', ['user'])
+                ->whereAny(['email', 'name'], 'LIKE', '%'.$search.'%');
+        })->orderBy('id', 'DESC')->paginate(10);
+        return view('user.index', compact('users'));
     }
 
     /**

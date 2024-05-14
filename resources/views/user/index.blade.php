@@ -22,9 +22,9 @@
             <div class="card-header">
               <h4>List Users</h4>
               <div class="card-header-form">
-                <form>
+                <form method="GET">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" name="search" class="form-control" placeholder="Search">
                     <div class="input-group-btn">
                       <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                     </div>
@@ -38,42 +38,38 @@
                   <tr style="text-align:center;">
                     <th>No</th>
                     <th>Name</th>
-                    <th>Phone</th>
                     <th>Email</th>
                     <th>Access Role</th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>Agus Somantri</td>
-                    <td style="text-align:center;">08575214</td>
-                    <td>Somantriagus@gmail.com</td>
-                    <td style="text-align:center;">superadmin</td>
-                    <td style="text-align:center;"><div class="badge badge-success">Active</div></td>
-                    <td style="text-align:center;">
-                        <a href="#" class="btn btn-info"><i class="fas fa-info-circle"></i> Detail</a>&nbsp;
-                        <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>&nbsp;
-                        <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
-                    </td>
-                  </tr>
+                  @foreach ($users as $key => $user)
+                      <tr>
+                        <td>{{ $users->firstItem() + $key }}</td>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->email}}</td>
+                        <td style="text-align:center;">{{$user->role}}</td>
+                        <td style="text-align:center;">
+                            @if ($user->email_verified_at != null)
+                                <div class="badge badge-success">Verified</div></td>
+                            @else
+                            <div class="badge badge-warning">Pending</div>
+                            @endif
+                        </td>
+                        <td style="text-align:center;">
+                            <a href="#" class="btn btn-info"><i class="fas fa-info-circle"></i></a>&nbsp;
+                            <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i></a>&nbsp;
+                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                        </td>
+                      </tr>
+                  @endforeach
                 </table>
               </div>
             </div>
             <div class="card-footer text-right">
               <nav class="d-inline-block">
                 <ul class="pagination mb-0">
-                  <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-                  </li>
-                  <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">2</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                  </li>
+                    {{ $users->withQueryString()->links() }}
                 </ul>
               </nav>
             </div>
@@ -83,15 +79,3 @@
     </div>
   </section>
 @endsection
-
-@push('customCSS')
-{{-- <link rel="stylesheet" href="{{ asset('assets/bootstrap-social/bootstrap-social.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/summernote/dist/summernote-bs4.css') }}"> --}}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.css">
-@endpush
-
-@push('customJS')
-{{-- <script src="{{ asset('assets/summernote/dist/summernote-bs4.js') }}"></script> --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.js"></script>
-@endpush

@@ -15,7 +15,28 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+
+    date_default_timezone_set('Asia/Jakarta');
+    $h = date('G');
+
+    $user_ip = getenv('REMOTE_ADDR');
+    $geo = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=$user_ip"));
+
+    if ($h >= 5 && $h <= 11) {
+        $great_current_time = 'Good Morning';
+    } elseif ($h >= 12 && $h <= 18) {
+        $great_current_time = 'Good Afternoon';
+    } else {
+        $great_current_time = 'Good Evening';
+    }
+
+    $data = array(
+        'great_current_time' => $great_current_time,
+        'city' => $geo["geoplugin_city"],
+        'country' => $geo["geoplugin_countryName"]
+    );
+
+    return view('auth.login', $data);
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {

@@ -13,7 +13,7 @@
           Histories
         </div>
         <div class="search-item">
-          <a href="#">#Stisla</a>
+          <a href="#">#APP</a>
           <a href="#" class="search-close"><i class="fas fa-times"></i></a>
         </div>
         <div class="search-header">
@@ -23,7 +23,7 @@
     </div>
 </form>
 <ul class="navbar-nav navbar-right">
-    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+    {{-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
             class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
         <div class="dropdown-menu dropdown-list dropdown-menu-right">
             <div class="dropdown-header">Messages
@@ -79,8 +79,8 @@
                 <a href="#">View All <i class="fas fa-chevron-right"></i></a>
             </div>
         </div>
-    </li>
-    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+    </li> --}}
+    {{-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
             class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
         <div class="dropdown-menu dropdown-list dropdown-menu-right">
             <div class="dropdown-header">Notifications
@@ -139,7 +139,7 @@
                 <a href="#">View All <i class="fas fa-chevron-right"></i></a>
             </div>
         </div>
-    </li>
+    </li> --}}
     <li class="dropdown"><a href="#" data-toggle="dropdown"
             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">

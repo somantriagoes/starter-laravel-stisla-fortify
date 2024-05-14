@@ -19,7 +19,6 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('home', function () {
-        //dd(Auth::user());
         return view('dashboard.home');
     })->name('home')->middleware('can:dashboard');
 

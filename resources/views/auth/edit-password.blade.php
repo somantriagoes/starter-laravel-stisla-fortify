@@ -69,7 +69,7 @@
               </div>
 
               <div class="card-footer text-right col-md-7">
-                <button class="btn btn-primary" type="submit">Change Password</button>
+                <button class="btn btn-danger" type="submit">Change Password</button>
               </div>
 
             </form>

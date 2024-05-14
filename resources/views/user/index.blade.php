@@ -43,7 +43,7 @@
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
-                  @foreach ($users as $key => $user)
+                  @forelse ($users as $key => $user)
                       <tr>
                         <td>{{ $users->firstItem() + $key }}</td>
                         <td>{{$user->name}}</td>
@@ -62,7 +62,13 @@
                             <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                         </td>
                       </tr>
-                  @endforeach
+                  @empty
+                  <tr>
+                    <td colspan="6">
+                        No Data Found
+                    </td>
+                  </tr>
+                  @endforelse
                 </table>
               </div>
             </div>

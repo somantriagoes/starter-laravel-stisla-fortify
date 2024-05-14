@@ -32,7 +32,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('auth.edit-password');
 
     Route::resources([
-        'users' => UserController::class,
+        'user' => UserController::class,
     ]);
 });
 

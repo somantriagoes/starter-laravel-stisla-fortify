@@ -8,7 +8,7 @@
       <h1>Users</h1>
       <div class="section-header-breadcrumb">
         <div class="breadcrumb-item active"><a href="#">Manage Account</a></div>
-        <div class="breadcrumb-item"><a href="#">User</a></div>
+        <div class="breadcrumb-item"><a href="#">Users</a></div>
         <div class="breadcrumb-item">Table</div>
       </div>
     </div>

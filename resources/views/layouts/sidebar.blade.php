@@ -16,7 +16,7 @@
           <a href="#" class="nav-link has-dropdown"><i class="fas fa-users"></i><span>Manage Account</span></a>
           <ul class="dropdown-menu">
             <li>
-                <a class="nav-link" href="index-0.html">User</a>
+                <a class="nav-link" href="{{ route('users.index') }}">User</a>
             </li>
           </ul>
         </li>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('auth.edit-password');
     })->name('auth.edit-password');
 
+    Route::resources([
+        'users' => UserController::class,
+    ]);
 });
 
 // Route::get('/', function () {

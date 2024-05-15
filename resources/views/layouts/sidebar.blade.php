@@ -20,6 +20,15 @@
             </li>
           </ul>
         </li>
+        <li class="menu-header">Master Data</li>
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link has-dropdown"><i class="fas fa-users"></i><span>Master Data</span></a>
+            <ul class="dropdown-menu">
+              <li>
+                  <a class="nav-link" href="{{ route('category.index') }}">Category</a>
+              </li>
+            </ul>
+          </li>
         @show
     </ul>
   </aside>

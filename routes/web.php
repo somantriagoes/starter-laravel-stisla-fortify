@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +55,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resources([
         'user' => UserController::class,
+        'category' => CategoryController::class,
     ]);
+
+    // Override category resource
+    Route::get('/category-store', [CategoryController::class, 'store']);
+    Route::get('/category-read', [CategoryController::class, 'read']);
+    Route::get('/category-update/{id}', [CategoryController::class, 'update']);
+    Route::get('/category-destroy/{id}', [CategoryController::class, 'destroy']);
+
+    // Route::resource('category', CategoryController::class);
+
 });
 
 // Route::get('/', function () {

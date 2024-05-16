@@ -27,5 +27,16 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => Hash::make('Rahasia123#'),
         ]);
+
+        User::create([
+            'name' => 'Lecturer',
+            'phone' => '+628575214',
+            'email' => 'lecturer@gmail.com',
+            'address' => 'Indonesia',
+            'bio' => 'Lecturer',
+            'role' => 'lecturer',
+            'email_verified_at' => now(),
+            'password' => Hash::make('lecturer123#'),
+        ]);
     }
 }

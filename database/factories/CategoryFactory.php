@@ -18,7 +18,7 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'user_id' => fake()->numberBetween(1,10),
+            'created_by' => fake()->numberBetween(1,10),
         ];
     }
 }

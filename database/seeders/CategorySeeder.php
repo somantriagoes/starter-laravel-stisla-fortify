@@ -19,7 +19,7 @@ class CategorySeeder extends Seeder
 
         DB::table('categories')->insert([
             'name' => 'E-Book',
-            'user_id' => 1
+            'created_by' => 1
         ]);
     }
 }

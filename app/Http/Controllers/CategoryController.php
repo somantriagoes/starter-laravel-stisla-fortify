@@ -67,8 +67,14 @@ class CategoryController extends Controller
 
         Category::create([
             'name'    => $request->name,
-            'user_id' => auth()->user()->id,
+            'created_by' => auth()->user()->id
         ]);
+
+        // if created_by removed at fillable model, use it
+        // $category = new Category();
+        // $category->name = $request->name;
+        // $category->created_by = auth()->user()->id;
+        // $category->save();
     }
 
     /**

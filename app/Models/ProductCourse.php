@@ -20,4 +20,12 @@ class ProductCourse extends Model
         'link_file',
     ];
 
+    public function lecturers(){
+        return $this->hasMany("App\Models\Lecturer");
+    }
+
+    public function categories(){
+        return $this->hasMany("App\Models\Category");
+    }
+
 }

@@ -11,12 +11,12 @@
                     <td>{{ $categories->firstItem() + $key }}</td>
                     <td>{{ $data->name }}</td>
                     <td style="text-align:center;">
-                        <a href="#" class="btn btn-warning" onclick="edit({{ $data->id }});"><i
-                                class="fas fa-edit"></i>
-                            Edit</a>&nbsp;
-                        <a href="#" class="btn btn-danger" onclick="destroy({{ $data->id }});"><i
-                                class="fas fa-trash"></i>
-                            Delete</a>
+                        <a href="#" class="btn btn-warning" onclick="edit({{ $data->id }});">
+                        <i class="fas fa-edit"></i>Edit</a>&nbsp;
+                        {{-- <a href="#" class="btn btn-danger" onclick="destroy({{ $data->id }});">
+                        <i class="fas fa-trash"></i> Delete</a> --}}
+                        <a href="#" class="btn btn-danger" onclick="readDeleteModal({{ $data->id }});">
+                        <i class="fas fa-trash"></i>Delete</a>
                     </td>
                 </tr>
             @empty
@@ -27,6 +27,9 @@
                 </tr>
             @endforelse
         </table>
+        <form>
+            <input type="hidden" value="{{ $page }}" id="page" name="page">
+        </form>
     </div>
 </div>
 <div class="card-footer text-right">

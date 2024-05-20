@@ -43,18 +43,63 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modal-title"></h5>
+                <h5 class="modal-title" id="modal-title-save"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="modal-body-save">
                 <div id="page-form" class="p-2"></div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Error Validation Modal -->
+<div id="alert-modal-save" class="modal fade">
+    <div class="modal-dialog modal-confirm-save">
+      <div class="modal-content">
+        <div class="modal-header">
+			<div class="icon-box">
+				<i class="material-icons">&#xE5CD;</i>
+			</div>
+			<h4 class="modal-title w-100" style="text-align: center;">Error!</h4>
+        </div>
+        <div id="alert-modal-body-save" class="modal-body" style="text-align: center;"></div>
+        <div class="modal-footer">
+          <button class="btn btn-info" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div id="alert-modal-del" class="modal fade">
+	<div class="modal-dialog modal-confirm-delete">
+		<div class="modal-content">
+            <input type="hidden" id="id_del" name="id_del">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-title-del"></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body-del">
+                <p></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-info" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-danger" onclick="destroy();">Yes, delete it!</button>
+            </div>
+		</div>
+	</div>
+</div>
+
+@push('customCSS')
+{{-- <link rel="stylesheet" href="{{ asset('assets/alert/alert.css') }}"> --}}
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="{{ asset('assets/css/modal/modal.confirm.css') }}">
+@endpush
+
 @push('customJS')
-    <script src="{{ asset('assets/js/app/category.js') }}"></script>
+{{-- <script src="{{ asset('assets/alert/alert.js') }}"></script> --}}
+<script src="{{ asset('assets/js/app/category.js') }}"></script>
 @endpush

@@ -25,6 +25,7 @@
               @csrf
               <div class="card-header">
                 <h4>Change Your Profile</h4>
+                <button class="btn btn-warning" type="submit">Change Profile</button>
               </div>
               <div class="card-body">
                   <div class="row">
@@ -85,7 +86,7 @@
                   </div>
               </div>
               <div class="card-footer text-right">
-                <button class="btn btn-primary" type="submit">Change Profile</button>
+                <button class="btn btn-warning" type="submit">Change Profile</button>
               </div>
             </form>
           </div>

@@ -14,8 +14,11 @@
     </div>
 
     <div class="section-body">
-      <h2 class="section-title">Users Table</h2>
-
+      <div class="row">
+        <div class="col-12">
+            @include('layouts.alert')
+        </div>
+      </div>
       <div class="row">
         <div class="col-12 col-md-6 col-lg-12">
           <div class="card">
@@ -58,7 +61,7 @@
                         </td>
                         <td style="text-align:center;">
                             <a href="#" class="btn btn-info"><i class="fas fa-info-circle"></i></a>&nbsp;
-                            <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i></a>&nbsp;
+                            <a href="{{ route('user.edit', $user->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>&nbsp;
                             <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                         </td>
                       </tr>
@@ -85,3 +88,7 @@
     </div>
   </section>
 @endsection
+
+@push('customJS')
+<script src="{{ asset('assets/js/alert.delay.js') }}"></script>
+@endpush

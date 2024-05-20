@@ -43,7 +43,8 @@ class CategoryController extends Controller
         return view('category.dataTable')->with(
             [
                 'categories' => $categories,
-                'search' => $search
+                'search' => $search,
+                'page' => $page
             ]
         );
     }
@@ -65,16 +66,16 @@ class CategoryController extends Controller
         //     'name'     => 'required|unique:categories|min:5',
         // ]);
 
-        Category::create([
-            'name'    => $request->name,
-            'created_by' => auth()->user()->id
-        ]);
+        // Category::create([
+        //     'name'    => $request->name,
+        //     'created_by' => auth()->user()->id
+        // ]);
 
         // if created_by removed at fillable model, use it
-        // $category = new Category();
-        // $category->name = $request->name;
-        // $category->created_by = auth()->user()->id;
-        // $category->save();
+        $category = new Category();
+        $category->name = $request->name;
+        $category->created_by = auth()->user()->id;
+        $category->save();
     }
 
     /**
@@ -106,6 +107,8 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->name = $request->name;
         $category->save();
+
+        return redirect()->route('user.index')->with(['success' => 'Category data change successfully']);
     }
 
     /**

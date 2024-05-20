@@ -83,6 +83,21 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="form-group col-md-7 col-12"">
+                            <label>Active User</label>
+                            <div class="selectgroup w-100">
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="active" value="1" class="selectgroup-input" {{$user->active == 1 ? "checked" : ""}}>
+                                    <span class="selectgroup-button">Active</span>
+                                </label>
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="active" value="0" class="selectgroup-input" {{$user->active == 0 ? "checked" : ""}}>
+                                    <span class="selectgroup-button">Non Active</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="form-group col-md-3 col-12">
                           <label>New Password</label>
                           <input type="password" class="form-control @error('password')

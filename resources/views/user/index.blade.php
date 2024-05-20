@@ -54,9 +54,14 @@
                         <td style="text-align:center;">{{$user->role}}</td>
                         <td style="text-align:center;">
                             @if ($user->email_verified_at != null)
-                                <div class="badge badge-success">Verified</div></td>
+                                <div class="badge badge-success">Verified</div>
                             @else
                             <div class="badge badge-warning">Pending</div>
+                            @endif
+                            @if ($user->active == 1)
+                                <div class="badge badge-success">User Active</div>
+                            @else
+                            <div class="badge badge-danger">User Non Active</div>
                             @endif
                         </td>
                         <td style="text-align:center;">

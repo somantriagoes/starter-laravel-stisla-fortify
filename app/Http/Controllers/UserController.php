@@ -94,6 +94,7 @@ class UserController extends Controller
 
         $user->phone = $request->phone;
         $user->role = $request->role;
+        $user->active = $request->active;
         $user->save();
 
         if(!empty($request->password)) {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Lecturer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -69,14 +70,28 @@ class UserController extends Controller
             'phone' => 'required|min:10|max:17'
         ]);
 
-        $user = User::findOrFail($id);
+        $user = User::with('Lecturer')->findOrFail($id);
         $user->name = $request->name;
         if($user->email != $request->email) {
-            $check = User::where('email', $request->email)->first();
-            if(!$check) {
+            $check_email = User::where('email', $request->email)->first();
+            if(!$check_email) {
                 $user->email = $request->email;
             }
         }
+
+        if($request->role == 'lecturer') {
+            if ($user->lecturer->user_id == '') {
+                $lecturer = new Lecturer;
+                $lecturer->user_id = $id;
+                $lecturer->created_by = auth()->user()->id;
+                $user->lecturer()->save($lecturer);
+            }
+        }else{
+            if ($user->lecturer->user_id == $id) {
+                $user->lecturer()->delete();
+            }
+        }
+
         $user->phone = $request->phone;
         $user->role = $request->role;
         $user->save();

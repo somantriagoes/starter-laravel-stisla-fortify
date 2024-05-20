@@ -44,7 +44,9 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     public function lecturer(){
-        return $this->hasOne("App\Models\Lecturer");
+        return $this->hasOne("App\Models\Lecturer")->withDefault([
+            'user_id' => '',
+        ]);
     }
 
 }

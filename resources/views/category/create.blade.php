@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="form-group text-right">
-            <button class="btn btn-success" onclick="store();">Create Data</button>
+            <button class="btn btn-success" onclick="store();">Save Data</button>
         </div>
     </div>
 </div>

@@ -15,11 +15,16 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         //
-        \App\Models\Category::factory(10)->create();
+        // \App\Models\Category::factory(5)->create();
 
-        DB::table('categories')->insert([
-            'name' => 'E-Book',
-            'created_by' => 1
-        ]);
+        $category = array(
+            [ 'name' => 'Pediatri', 'created_by' => 1 ],
+            [ 'name' => 'Ginekologi', 'created_by' => 1 ],
+            [ 'name' => 'Neurologi', 'created_by' => 1 ],
+            [ 'name' => 'Kesehatan Masyarakat', 'created_by' => 1 ],
+            [ 'name' => 'Lainnya', 'created_by' => 1 ],
+        );
+
+        DB::table('categories')->insert($category);
     }
 }

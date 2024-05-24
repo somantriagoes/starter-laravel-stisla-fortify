@@ -22,10 +22,19 @@
         </li>
         <li class="menu-header">Master Data</li>
         <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-users"></i><span>Master Data</span></a>
+            <a href="#" class="nav-link has-dropdown"><i class="fas fa-database"></i><span>Master Data</span></a>
             <ul class="dropdown-menu">
+                <li>
+                    <a class="nav-link" href="{{ route('lecturer.index') }}">Lecturers</span></a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{{ route('discount.index') }}">Discounts</span></a>
+                </li>
               <li>
-                  <a class="nav-link" href="{{ route('category.index') }}">Category</a>
+                  <a class="nav-link" href="{{ route('category.index') }}">Categories</a>
+              </li>
+              <li>
+                <a class="nav-link" href="{{ route('product-courses.index') }}">Courses</a>
               </li>
             </ul>
           </li>

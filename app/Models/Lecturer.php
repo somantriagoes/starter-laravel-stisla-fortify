@@ -13,8 +13,12 @@ class Lecturer extends Model
         return $this->belongsTo("App\Models\User");
     }
 
+    // public function product(){
+    //     return $this->belongsTo("App\Models\ProductCourse", "lecturer_id");
+    // }
+
     public function product(){
-        return $this->belongsTo("App\Models\ProductCourse");
+        return $this->hasMany("App\Models\ProductCourse", "id");
     }
 
 }

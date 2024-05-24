@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LecturerController;
+use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductCourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +24,7 @@ Route::get('/', function () {
     $h = date('G');
 
     $user_ip = getenv('REMOTE_ADDR');
-    $geo = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=$user_ip"));
+    //$geo = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=$user_ip"));
 
     if ($h >= 5 && $h <= 11) {
         $great_current_time = 'Good Morning';
@@ -33,8 +36,10 @@ Route::get('/', function () {
 
     $data = array(
         'great_current_time' => $great_current_time,
-        'city' => $geo["geoplugin_city"],
-        'country' => $geo["geoplugin_countryName"]
+        // 'city' => $geo["geoplugin_city"],
+        // 'country' => $geo["geoplugin_countryName"]
+        'city' => 'Bandung',
+        'country' => 'Indonesia'
     );
 
     return view('auth.login', $data);
@@ -55,7 +60,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resources([
         'user' => UserController::class,
+        'lecturer' => LecturerController::class,
+        'discount' => DiscountController::class,
         'category' => CategoryController::class,
+        'product-courses' => ProductCourseController::class,
     ]);
 
     // Override category resource
@@ -64,8 +72,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/category-update/{id}', [CategoryController::class, 'update']);
     Route::get('/category-destroy/{id}', [CategoryController::class, 'destroy']);
 
+    // Override discount resource
+    Route::get('/discount-store', [DiscountController::class, 'store']);
+    Route::get('/discount-read', [DiscountController::class, 'read']);
+    Route::get('/discount-update/{id}', [DiscountController::class, 'update']);
+    Route::get('/discount-destroy/{id}', [DiscountController::class, 'destroy']);
+
     // Route::resource('category', CategoryController::class);
 
+    // define new route
+    Route::get('course/upload/{id}', [ProductCourseController::class, 'upload'])->name('product-courses.upload');
 });
 
 // Route::get('/', function () {

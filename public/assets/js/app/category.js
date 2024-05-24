@@ -1,7 +1,7 @@
 $(document).ready(function() {
     // Modify paginate() param from jquery request
-    var uriString = window.location.search;
-    readDataTable(uriString);
+    var uri_string = window.location.search;
+    readDataTable(uri_string);
 });
 
 function readDataTable(uri) {
@@ -50,6 +50,7 @@ function edit(id) {
 function update(id) {
     var name = $('#name').val();
     var page = $('#page').val();
+
     if(name == '') {
         $('#alert-modal-body-save').html("'Name' cannot be empty.");
         $('#alert-modal-save').modal('show');
@@ -61,6 +62,11 @@ function update(id) {
             success: function(data) {
                 $('.close').click();
                 readDataTable('?page='+page);
+                // $('#success').html('<div class="alert alert-success alert-dismissible show fade">'+
+                // '<div class="alert-body" id="alert-body">'+
+                // '<p>Category change successfully</p>'+
+                // '</div></div>');
+                // $("#success").delay(900).slideUp(300);
             }
         });
     }

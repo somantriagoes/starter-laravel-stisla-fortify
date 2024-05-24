@@ -15,8 +15,12 @@ class Category extends Model
         'created_by'
     ];
 
-    public function product(){
-        return $this->belongsTo("App\Models\ProductCourse");
+    // public function product(){
+    //     return $this->belongsTo("App\Models\ProductCourse", "category_id");
+    // }
+
+    public function products(){
+        return $this->hasMany("App\Models\ProductCourse", "id");
     }
 
 }

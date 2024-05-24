@@ -35,7 +35,7 @@ class CategoryController extends Controller
             $search = $request->input('search');
         }
 
-        $categories = Category::orderBy('id', 'DESC')
+        $categories = Category::orderBy('id', 'ASC')
         ->when($request->input('search'), function($query, $search){
             $query->where('name', 'LIKE', '%'.$search.'%');
         })->paginate($perPage, ['*'], 'page', $page)->setPath(route('category.index'));

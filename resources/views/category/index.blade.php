@@ -7,13 +7,17 @@
         <div class="section-header">
             <h1>Category</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">Data Master</a></div>
+                <div class="breadcrumb-item active"><a href="#">Master Data</a></div>
                 <div class="breadcrumb-item"><a href="#">Category</a></div>
                 <div class="breadcrumb-item">Table</div>
             </div>
         </div>
 
         <div class="section-body">
+            <div class="row">
+                <div class="col-12" id="success">
+                </div>
+            </div>
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-12">
                     <div class="card">
@@ -40,7 +44,7 @@
 
 <!-- Category Modal -->
 <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog" role="document" style="max-width: 40%;">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modal-title-save"></h5>

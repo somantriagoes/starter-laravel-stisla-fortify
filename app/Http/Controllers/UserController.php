@@ -22,7 +22,7 @@ class UserController extends Controller
         ->when($request->input('search'), function($query, $search){
             $query->whereIn('role', ['admin', 'user', 'lecturer'])
                 ->whereAny(['email', 'name'], 'LIKE', '%'.$search.'%');
-        })->orderBy('id', 'DESC')->paginate(10);
+        })->orderBy('id', 'ASC')->paginate(10);
         return view('user.index', compact('users'));
     }
 
